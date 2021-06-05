@@ -17,5 +17,5 @@ public interface IoTHomeEndpoint {
             tags = {"BackOfficeEndpoint"})
     @GetMapping(value = "/getCurrentSensorData",
             produces = "application/json")
-    ResponseEntity<GlobalResponseModel> getCurrentSensorData() throws JsonProcessingException;
+    ResponseEntity<GlobalResponseModel> getCurrentSensorData() throws JsonProcessingException, Exception;
 }

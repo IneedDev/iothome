@@ -22,7 +22,6 @@ import org.springframework.web.client.RestTemplate;
 public class IoTHomeController implements IoTHomeEndpoint {
 
     private static final String sensorId = "000000001";
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     @Autowired
     RedisService redisService;
@@ -35,23 +34,18 @@ public class IoTHomeController implements IoTHomeEndpoint {
     PersistenceService persistenceService;
 
     @Override
-    public ResponseEntity<GlobalResponseModel> getCurrentSensorData() throws JsonProcessingException {
-
-        ResponseType responseType = mapper.readValue(redisService.getDataFromRedis(sensorId).replace("'", "\""), ResponseType.class);
-        ResponseTypeDTO dto = new ResponseTypeDTO();
-        dto.setSensor_id(sensorId);
-        dto.setTemperature(Double.parseDouble(responseType.getData().getTemperature()));
-        dto.setHumidity(Double.parseDouble(responseType.getData().getHumidity()));
-        dto.setDateCreated(responseType.getTime());
+    public ResponseEntity<GlobalResponseModel> getCurrentSensorData() throws Exception {
+        ResponseTypeDTO dto = redisService.getDataFromRedis(sensorId);
+        //TODO separete method
         sensorDataLocalRepository.saveDoList(dto);
         System.out.println("Sensor data list: " + sensorDataLocalRepository.getAllSensorData().size());
 
-        persistenceService.saveSensorData(sensorId, responseType);
+        persistenceService.saveSensorData(dto);
 
         return ResponseEntity
                 .status(200)
                 .body(GlobalResponseModel.builder()
-                        .payload(responseType)
+                        .payload(dto)
                         .status(GlobalResponseModel.Status.OK_WITH_RESPONSE)
                         .build()
                 );

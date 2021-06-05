@@ -21,8 +21,8 @@ public class PersistenceServiceImpl implements PersistenceService {
     SensorDataLocalRepository sensorDataLocalRepository;
 
     @Override
-    public void saveSensorData(String sensorId, ResponseType responseType) {
-        sensorDataPersistenceRepository.save(prepareResponseDTO(sensorId, responseType));
+    public void saveSensorData(ResponseTypeDTO responseTypeDto) {
+        sensorDataPersistenceRepository.save(responseTypeDto);
     }
 
 
