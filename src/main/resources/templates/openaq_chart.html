@@ -68,13 +68,10 @@
                         <a class="nav-link" href="/api/v1/iothome/getCurrentSensorData">API</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/iothome/getDataSensorChart">Chart full</a>
+                        <a class="nav-link" href="http://localhost:8080/iothome/getDataSensorChart">Chart full</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/iothome/getReducedDataSensorChart">Chart now</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">OpenAQ</a>
                     </li>
                 </ul>
             </nav>
@@ -90,10 +87,12 @@
 
     var daysTest = [[${daysTest}]];
     var coordinates = [[${coordinates}]];
+    var countries = [[${countries}]];
 
-    console.log(coordinates);
+    console.log(coordinates[0])
+    console.log(coordinates[1])
+    console.log(coordinates.length)
 
-    // console.log(chartData);
 
 
 
@@ -114,6 +113,11 @@
     var greenIcon = new LeafIcon({iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-yellow.png'});
 
     L.marker([50.09, 19.98], {icon: greenIcon}).bindPopup("ESP8266 tem, humidity sensor").addTo(map);
+    L.marker([50.09, 19.00], {icon: greenIcon}).bindPopup("ESP8266 tem, humidity sensor").addTo(map);
+
+    for (var i = 0; i < coordinates.length; i++) {
+        marker = new L.marker([coordinates[i][1], coordinates[i][0]], {icon: greenIcon}).bindPopup(countries[i]).addTo(map);
+    }
 
 </script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"

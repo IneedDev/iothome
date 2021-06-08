@@ -6,6 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Api
 public interface IoTHomeEndpoint {
@@ -15,7 +16,7 @@ public interface IoTHomeEndpoint {
 //            response = ResponseType.class,
             responseContainer = "GlobalResponseModel",
             tags = {"BackOfficeEndpoint"})
-    @GetMapping(value = "/getCurrentSensorData",
+    @GetMapping(value = "/getCurrentSensorData/{sensorId}",
             produces = "application/json")
-    ResponseEntity<GlobalResponseModel> getCurrentSensorData() throws JsonProcessingException, Exception;
+    ResponseEntity<GlobalResponseModel> getCurrentSensorData(@PathVariable("sensorId") String sensorId) throws JsonProcessingException, Exception;
 }

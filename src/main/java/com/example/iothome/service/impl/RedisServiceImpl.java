@@ -47,7 +47,7 @@ public class RedisServiceImpl implements RedisService {
         if (responseType == null) {
             throw new IoTHomeException("Redis returns null");
         }
-        ResponseTypeDTO dto = ResponseMapper.responseMapperToDTO("", mapper.readValue(responseType.replace("'", "\""), ResponseType.class));
+        ResponseTypeDTO dto = ResponseMapper.responseMapperToDTO(sensorId, mapper.readValue(responseType.replace("'", "\""), ResponseType.class));
         return dto;
     }
 }

@@ -1,6 +1,7 @@
 package com.example.iothome.repository.impl;
 
 import com.example.iothome.model.entity.ResponseTypeDTO;
+import com.example.iothome.model.response.location.CoordinatesBean;
 import com.example.iothome.repository.SensorDataLocalRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +12,7 @@ import java.util.List;
 public class SensorDataLocalRepositoryImpl implements SensorDataLocalRepository {
 
     private List<ResponseTypeDTO> sensorData = new ArrayList<>();
+    private List<CoordinatesBean> coordinates = new ArrayList<>();
 
     @Override
     public void saveDoList(ResponseTypeDTO response) {
@@ -20,5 +22,15 @@ public class SensorDataLocalRepositoryImpl implements SensorDataLocalRepository 
     @Override
     public List<ResponseTypeDTO> getAllSensorData() {
         return sensorData;
+    }
+
+    @Override
+    public void saveAllCoordinates(List<CoordinatesBean> coordinates) {
+        this.coordinates = coordinates;
+
+    }
+    @Override
+    public List<CoordinatesBean> getAllCoordinates() {
+        return coordinates;
     }
 }

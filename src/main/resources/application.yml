@@ -18,4 +18,4 @@ spring:
         jdbc:
           batch_size: ${BATCH_SIZE:100}
 job:
-  cron: ${JOB_CRON:0 0/10 * * * ?}
+  cron: ${JOB_CRON:*/10 * * * * *}

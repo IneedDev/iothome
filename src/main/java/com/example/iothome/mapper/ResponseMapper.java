@@ -3,6 +3,7 @@ package com.example.iothome.mapper;
 import com.example.iothome.model.entity.ResponseTypeDTO;
 import com.example.iothome.model.response.ResponseType;
 
+
 public class ResponseMapper {
 
     public static ResponseTypeDTO responseMapperToDTO(String sensorId, ResponseType responseType) {
@@ -13,4 +14,5 @@ public class ResponseMapper {
         dto.setDateCreated(responseType.getTime());
         return dto;
     }
+
 }

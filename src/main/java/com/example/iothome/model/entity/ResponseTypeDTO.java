@@ -24,10 +24,10 @@ public class ResponseTypeDTO {
     private String sensor_id;
 
     @Column(name = "temperature")
-    private double temperature;
+    private double temperature = 0.0;
 
     @Column(name = "humidity")
-    private double humidity;
+    private double humidity = 0.0;
 
     @Column(insertable = true, updatable = false, name = "date_created")
     private String dateCreated;

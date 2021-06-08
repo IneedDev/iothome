@@ -25,6 +25,14 @@ public class ChartController implements IoTHomeChartEndpoint {
 	@Override
 	public String getDataSensorChart(ModelMap modelMap) {
 		List<List<Object>> dataList = chartService.getFullChartData();
+
+
+		List<Integer> dayList = new ArrayList<>();
+		dayList.add(4);
+		dayList.add(5);
+		dayList.add(6);
+
+		modelMap.addAttribute("daysTest", dayList);
 		modelMap.addAttribute("chartData", dataList);
 		return "google_chart";
 	}

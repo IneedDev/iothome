@@ -43,7 +43,7 @@ public class JobScheduler {
         log.info("Running scheduled job: {}", envHelper.getJobCron());
         try {
             sensorDataLocalRepository.saveDoList(redisService.getDataFromRedis(sensorId));
-        } catch (JsonProcessingException e) {
+        } catch (JsonProcessingException | IllegalAccessException e) {
             e.printStackTrace();
         }
         List<ResponseTypeDTO> list = sensorDataLocalRepository.getAllSensorData();
