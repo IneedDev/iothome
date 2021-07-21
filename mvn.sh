@@ -2,7 +2,7 @@
     if [ -z "$CUSTOM_MVN_PWD" ]; then
         CUSTOM_MVN_PWD=$PWD
     fi
-    IMAGE_NAME="docker.easypack24.net:5000/inpost/maven-jdk11:3.0.5-10"
+    IMAGE_NAME="maven:amazoncorretto"
 
     if [ -z "$MVN_OPTIONS" ]; then
         MVN_OPTIONS="-Xmx2560m -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1"

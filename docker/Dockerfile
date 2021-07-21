@@ -1,4 +1,4 @@
-FROM docker.easypack24.net:5000/inpost/corretto-jdk11:11.0.3.7.1.GA
+FROM amazoncorretto:8u302-alpine
 
 ENV TZ=Europe/Warsaw
 ENV JVM_XMX="1G"
