@@ -5,9 +5,9 @@ redis:
   redisConnectionTimeout: ${IoT_HOME_REDIS_CONNECTION_TIMEOUT:30000}
 spring:
   datasource:
-    url: jdbc:sqlserver://54.38.55.55:1433;databaseName=master
+    url: ******
     username: sa
-    password: Sasanka0101
+    password: *****
     driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
   jpa:
     show-sql: true
