@@ -7,3 +7,5 @@ App for collecting environment data like temp and humidity and presenting on web
 redis, SQL Server esp8266
 
 TBC
+
+![HLD](Untitled Diagram.png)
