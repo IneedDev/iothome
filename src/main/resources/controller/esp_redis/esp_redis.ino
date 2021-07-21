@@ -4,12 +4,7 @@
 #include <WiFiUdp.h>
 #include "DHT.h"
 
-#define WIFI_SSID "UPC1354629"
-#define WIFI_PASSWORD "BQfmc7dmsz4x"
 
-#define REDIS_ADDR "54.38.55.55"
-#define REDIS_PORT 6379
-#define REDIS_PASSWORD "Sasanka0101"
 
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 #define DHTTYPE11 DHT11
