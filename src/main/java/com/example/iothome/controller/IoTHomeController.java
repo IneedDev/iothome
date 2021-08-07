@@ -2,6 +2,7 @@ package com.example.iothome.controller;
 
 import com.example.iothome.controller.endpoint.IoTHomeEndpoint;
 import com.example.iothome.model.entity.ResponseTypeDTO;
+import com.example.iothome.model.response.Client;
 import com.example.iothome.model.response.GlobalResponseModel;
 import com.example.iothome.repository.SensorDataLocalRepository;
 import com.example.iothome.service.PersistenceService;
@@ -13,6 +14,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/iothome")
@@ -52,5 +56,17 @@ public class IoTHomeController implements IoTHomeEndpoint {
     public String getCurrentDataSensorListSize() {
         System.out.println(sensorDataLocalRepository.getAllSensorData().size());
         return sensorDataLocalRepository.getAllSensorData().toString();
+    }
+
+    @GetMapping(value="/clients")
+    public Client getClients() {
+        List<Client> clients = new ArrayList<>();
+        Client client = new Client();
+        client.setId(123L);
+        client.setEmail("test@Email.com");
+        client.setName("TestName");
+        clients.add(client);
+        System.out.println("*************** get client call");
+        return client;
     }
 }
