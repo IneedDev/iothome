@@ -24,7 +24,7 @@ public class RedisStandaloneConnection {
                         .fixedTimeout(Duration.ofMillis(envHelper.getRedisConnectionTimeout()))
                         .timeoutCommands(true).build())
                 .build());
-        RedisURI redisUriBuilder = RedisURI.Builder.redis("54.38.55.55", 6379).withPassword("Sasanka0101").withDatabase(0).build();
+        RedisURI redisUriBuilder = RedisURI.Builder.redis("xxxx", 6379).withPassword("xxxxx").withDatabase(0).build();
 //        RedisURI redisURI = RedisURI.create(envHelper.getSchema() + "://" + envHelper.getRedisEndpoint().get(0) + "/" + envHelper.getDatabaseName()+ "/" + "Sasanka0101");
         return redisClient.connect(redisUriBuilder);
     }
